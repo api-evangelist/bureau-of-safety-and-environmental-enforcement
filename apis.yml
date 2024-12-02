@@ -1,0 +1,38 @@
+aid: bureau-of-safety-and-environmental-enforcement
+name: ' Bureau of Safety and Environmental Enforcement'
+description: >-
+  Bureau of Safety and Environmental Enforcement. Promoting Safety, Protecting
+  the Environment and Conserving Offshore Resources ... Home; Sitemap; Careers;
+  Contact Us; Print; Search using USASearch. Follow Bureau of Safety and
+  Environmental Enforcement on: ... API List Online Query (multiregional data)
+  data last updated: 11-29-2024 04:00 AM(CST)
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API
+created: '2024-11-30'
+modified: '2024-11-30'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/bureau-of-safety-and-environmental-enforcement/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: >-
+      bureau-of-safety-and-environmental-enforcement:bureau-of-safety-and-environmental-enforcement
+    name: ' Bureau of Safety and Environmental Enforcement'
+    description: >-
+      Bureau of Safety and Environmental Enforcement. Promoting Safety,
+      Protecting the Environment and Conserving Offshore Resources ... Home;
+      Sitemap; Careers; Contact Us; Print; Search using USASearch. Follow Bureau
+      of Safety and Environmental Enforcement on: ... API List Online Query
+      (multiregional data) data last updated: 11-29-2024 04:00 AM(CST)
+    humanURL: https://www.data.bsee.gov/well/api/default.aspx
+    tags:
+      - API
+    properties:
+      - type: Documentation
+        url: https://www.data.bsee.gov/well/api/default.aspx
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
