@@ -3,9 +3,9 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/bureau-of-safety-and-environmental-enforcement/refs/heads/main/apis.yml
 name: Bureau of Safety and Environmental Enforcement
 tags:
-  - Federal Government
-  - Environment
   - Enforcement
+  - Environment
+  - Federal Government
   - Safety
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
