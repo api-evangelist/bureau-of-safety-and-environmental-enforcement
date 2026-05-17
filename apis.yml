@@ -11,7 +11,7 @@ tags:
   - Oil and Gas
   - Wells
 type: Index
-x-type: government
+kind: government
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2024-11-30'
@@ -119,7 +119,7 @@ common:
     url: https://www.bsee.gov/
   - type: Portal
     url: https://www.data.bsee.gov/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.bsee.gov/privacy-policy
   - type: Data Portal
     url: https://catalog.data.gov/dataset?organization=bsee-gov
