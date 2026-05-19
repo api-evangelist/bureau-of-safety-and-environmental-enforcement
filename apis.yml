@@ -115,6 +115,8 @@ apis:
       - Well activity compliance reporting
       - Regulatory submission workflows
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bureau-of-safety-and-environmental-enforcement
   - type: Website
     url: https://www.bsee.gov/
   - type: Portal
