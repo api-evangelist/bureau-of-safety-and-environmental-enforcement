@@ -115,6 +115,10 @@ apis:
       - Well activity compliance reporting
       - Regulatory submission workflows
 common:
+  - type: VulnerabilityDisclosure
+    url: security/bureau-of-safety-and-environmental-enforcement-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/bureau-of-safety-and-environmental-enforcement-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/bureau-of-safety-and-environmental-enforcement
   - type: Website
@@ -125,6 +129,8 @@ common:
     url: https://www.bsee.gov/privacy-policy
   - type: Data Portal
     url: https://catalog.data.gov/dataset?organization=bsee-gov
+  - url: https://www.bsee.gov/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
