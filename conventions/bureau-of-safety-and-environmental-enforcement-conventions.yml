@@ -1,0 +1,80 @@
+generated: '2026-09-05'
+method: derived
+source: >-
+  live probes of www.data.bsee.gov, www.bsee.gov and timsweb.bsee.gov; no OpenAPI exists
+  to derive from
+provider: Bureau of Safety and Environmental Enforcement
+providerId: bureau-of-safety-and-environmental-enforcement
+description: >-
+  Cross-cutting runtime semantics for BSEE's public surface. BSEE ships no API contract,
+  so most conventions have no published answer. The two facts that DO matter to an agent
+  are recorded honestly: the public surface is read-only, and the host lies about errors.
+auth_style:
+  public_data: none
+  note: >-
+    The Data Center online queries and bulk downloads require no credential of any kind.
+    The eWell / TIMS permitting system at timsweb.bsee.gov requires a BSEE-issued operator
+    account; unauthenticated requests receive the login page with HTTP 200. The Public
+    Information Ordering System signs users in with Login.gov.
+content_types:
+  json_api: false
+  served:
+    - text/html
+    - text/csv (query export)
+    - application/vnd.ms-excel (query export)
+    - application/pdf (query export)
+    - application/zip (bulk delimited-ASCII downloads)
+pagination:
+  style: html-form
+  note: >-
+    Result paging is a server-side ASP.NET grid control driven by postback state. There
+    are no stable page/offset/cursor query parameters a client can construct.
+versioning:
+  style: none
+error_envelope:
+  format: html
+  note: >-
+    CRITICAL FOR AUTOMATED CONSUMERS. www.data.bsee.gov returns HTTP 200 with an HTML
+    page titled "Data Center 404 Error" for any path that does not exist — verified with
+    the control probe https://www.data.bsee.gov/zzzz-not-a-real-page.aspx (HTTP 200,
+    28,245 bytes). timsweb.bsee.gov returns HTTP 200 with the TIMS Web Login page for any
+    unknown path. Status codes on these two hosts cannot be trusted; only the body can.
+    www.bsee.gov, by contrast, returns a true 404.
+rate_limit_signaling:
+  headers: []
+  note: No rate-limit headers are returned and no limits are published. See rate-limits/.
+request_id_tracing:
+  supported: false
+idempotency:
+  coverage: none
+  supported: false
+  mechanism: null
+  note: >-
+    Not applicable in substance — the public surface has no write operations at all. It is
+    recorded as `none` rather than `na` because the gated eWell / TIMS system does accept
+    operator submissions (permit applications, well activity reports) and publishes no
+    replay-protection mechanism for them; we cannot inspect that surface without an
+    operator account, so we do not claim it is safe to retry.
+dry_run_mode:
+  supported: false
+  status: na
+  note: No public write surface, so there is nothing to rehearse.
+reversibility:
+  status: na
+  grade: na
+  note: >-
+    The public BSEE surface is READ-ONLY — online query forms and file downloads — so
+    there is no action for an agent to take back and reversibility does not apply. The
+    gated eWell / TIMS submission surface does have reversal-shaped concepts (permit
+    revisions and withdrawals) but they are described only in the operator application
+    manual behind the login, with no published operation identifier and no stated window,
+    so no window is asserted here.
+  write_surfaces: []
+cross_references:
+  errors: null
+  lifecycle: lifecycle/bureau-of-safety-and-environmental-enforcement-lifecycle.yml
+  authentication: null
+  rate_limits: rate-limits/bureau-of-safety-and-environmental-enforcement-rate-limits.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

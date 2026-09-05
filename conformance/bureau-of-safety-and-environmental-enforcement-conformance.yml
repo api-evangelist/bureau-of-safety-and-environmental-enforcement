@@ -1,0 +1,107 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  live probes of BSEE hosts plus the BSEE Data Center, disclaimer and security.txt pages
+provider: Bureau of Safety and Environmental Enforcement
+providerId: bureau-of-safety-and-environmental-enforcement
+description: >-
+  Standards conformance for BSEE, assessed against the cross-cutting API standards and
+  against the `government` regulatory regime shortlist (DCAT, CKAN, eIDAS, FedRAMP,
+  Open Data Charter). BSEE publishes no machine-readable API contract, so nearly every
+  contract-level standard is not applicable rather than failed. The one standard BSEE
+  demonstrably implements is RFC 9116 (security.txt).
+conformance:
+  - id: rfc9116-security-txt
+    name: RFC 9116 security.txt
+    conforms: true
+    evidence: https://www.bsee.gov/.well-known/security.txt
+    note: >-
+      Served as text/plain with Contact, Expires, Preferred-Languages, Canonical and
+      Policy fields. The Expires value (2025-12-01T08:00:00.000Z) is in the past as of
+      this probe, which RFC 9116 section 2.5.5 says consumers should treat as stale.
+  - id: dcat-us
+    name: DCAT-US / Project Open Data data.json
+    conforms: false
+    evidence: https://www.bsee.gov/data.json
+    note: >-
+      404. No DCAT-US catalog is served from any bsee.gov host
+      (www.bsee.gov/data.json 404, www.bsee.gov/digitalstrategy/data.json 404,
+      www.data.bsee.gov/data.json returns the ASP.NET 404 shell with HTTP 200).
+      BSEE datasets do appear in catalog.data.gov, but that catalog is operated by GSA.
+  - id: ckan
+    name: CKAN catalog API
+    conforms: false
+    evidence: https://catalog.data.gov/dataset?organization=bsee-gov
+    note: >-
+      BSEE is listed as an organization in Data.gov's CKAN instance, but the instance is
+      GSA's, not BSEE's. BSEE runs no CKAN of its own.
+  - id: fedramp
+    name: FedRAMP authorization
+    conforms: false
+    evidence: https://www.bsee.gov/offshore-data-tools
+    note: No FedRAMP authorization is published on any BSEE public page.
+  - id: open-data-charter
+    name: International Open Data Charter
+    conforms: false
+    evidence: https://www.bsee.gov/site-page/disclaimer
+    note: >-
+      BSEE's disclaimer states the data is public information that may be distributed or
+      copied, which is open in substance, but BSEE makes no Open Data Charter commitment
+      and attaches no licence identifier to its downloads.
+  - id: eidas
+    name: eIDAS
+    conforms: false
+    evidence: https://www.bsee.gov/
+    note: Not applicable — U.S. federal agency, outside the EU trust framework.
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    evidence: https://www.bsee.gov/.well-known/oauth-authorization-server
+    note: >-
+      404 on both bsee.gov and www.bsee.gov; the two soft-404 hosts return HTML.
+      The Public Information Ordering System signs users in with Login.gov, which is
+      itself an OpenID Connect provider, but BSEE publishes no OAuth or OIDC metadata
+      of its own and exposes no token-authenticated API.
+  - id: oidc
+    name: OpenID Connect Discovery
+    conforms: false
+    evidence: https://www.bsee.gov/.well-known/openid-configuration
+    note: 404.
+  - id: rfc9457
+    name: RFC 9457 Problem Details
+    conforms: false
+    evidence: https://www.data.bsee.gov/
+    note: >-
+      Not applicable — no JSON API surface. Errors are rendered as an HTML
+      "Data Center 404 Error" page returned with HTTP 200.
+  - id: ogc-api
+    name: OGC API / OGC Web Services
+    conforms: false
+    evidence: https://www.data.bsee.gov/Main/Mapping.aspx
+    note: >-
+      BSEE's own mapping page publishes downloadable shapefiles and ArcGIS geodatabases
+      and links to ArcGIS Online web-map viewers (bobson.maps.arcgis.com), not to a
+      service endpoint. The joint BOEM/BSEE ArcGIS REST services at
+      https://gis.boem.gov/arcgis/rest/services/BOEM_BSEE (HTTP 200, real ArcGIS 11.3
+      service directory) are hosted and operated by the Bureau of Ocean Energy
+      Management on BOEM's own domain, and are profiled under BOEM. They are recorded
+      here as related-but-not-BSEE so a later round does not re-attribute them.
+domain_standards:
+  - id: api-well-number
+    name: API Well Number (American Petroleum Institute well identifier)
+    conforms: false
+    evidence: https://www.data.bsee.gov/Well/API/FieldDefinitions.aspx
+    note: >-
+      BSEE keys its well record on the API well number and documents the field in HTML
+      field definitions, which is a genuine domain identifier scheme for the offshore
+      oil-and-gas market. It is recorded as NOT conforming because the 0.12.0
+      domain_standard_conformance check reads a machine-readable CONTRACT declaring the
+      standard, and BSEE publishes no contract at all. This is a candidate to flip to
+      true the day BSEE ships an OpenAPI whose schema names the identifier.
+summary:
+  conformant: 1
+  assessed: 11
+  domain_standards_declared_in_contract: 0
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

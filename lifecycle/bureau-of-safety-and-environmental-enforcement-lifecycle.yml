@@ -1,0 +1,72 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://www.data.bsee.gov/Main/RawData.aspx and
+  https://www.data.bsee.gov/Other/PIOrderingSystem/Default.aspx
+provider: Bureau of Safety and Environmental Enforcement
+providerId: bureau-of-safety-and-environmental-enforcement
+description: >-
+  Lifecycle posture for the BSEE public data surface. There is no API to version, so
+  there is no versioning scheme, no deprecation policy, no Sunset/Deprecation header
+  practice and no SLA. What BSEE does publish, and what a consumer can actually plan
+  against, is a per-dataset refresh cadence for its bulk downloads.
+versioning:
+  scheme: none
+  current_version: null
+  note: >-
+    No API version is published or negotiated. Data Center query pages and raw files
+    carry no version identifier; some downloads (for example the pipeline location
+    lists) are distinguished only by a version DATE inside the file.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation or retirement policy is published for the Data Center queries or the
+    raw-data files. Datasets have been added and retired without notice.
+sla:
+  published: false
+  note: No availability or response-time commitment is published.
+status_page:
+  url: null
+  published: false
+  note: >-
+    BSEE operates no status page. Outages and planned maintenance are announced as inline
+    banners on the affected application page — for example the Public Information
+    Ordering System page announces a fiscal year-end closeout during which purchases are
+    disabled from 4:00 p.m. ET Friday 2026-09-18 to 9:00 a.m. Monday 2026-10-05. A
+    consumer has to load the page to find out.
+refresh_cadence:
+  source: https://www.data.bsee.gov/Main/RawData.aspx
+  note: >-
+    BSEE publishes the update frequency of each bulk raw-data file on the Raw Data page.
+    This is the closest thing to a change signal the surface offers.
+  schedules:
+    - frequency: daily
+      datasets:
+        - APD (Applications for Permit to Drill)
+        - API well number lookup
+        - Assignments
+        - Company detail
+    - frequency: weekly
+      datasets:
+        - Approvals
+        - Scanned documents
+    - frequency: bi-monthly
+      datasets:
+        - Production by planning area
+        - Production by platform
+        - Production data
+    - frequency: monthly
+      datasets:
+        - Offshore statistics
+        - OCS production
+support_statement:
+  source: https://www.data.bsee.gov/Main/RawData.aspx
+  quote: >-
+    BSEE states it does not provide support for the downloadable raw data and suggests it
+    only for consumers with advanced knowledge of the data involved.
+deprecated_operations: []
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,38 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  web search plus live probes of www.bsee.gov, www.data.bsee.gov and timsweb.bsee.gov
+provider: Bureau of Safety and Environmental Enforcement
+providerId: bureau-of-safety-and-environmental-enforcement
+status: none
+description: >-
+  No MCP server exists for BSEE — neither hosted by BSEE nor shipped as a local stdio
+  package — and none can be derived, because BSEE publishes no OpenAPI, GraphQL or other
+  machine-readable contract whose operations could become tools. This file records the
+  search so a later round does not repeat it; it deliberately carries no MCPServer
+  pointer in apis.yml, because a pointer would assert an agent surface BSEE does not have.
+deployment:
+  mode: none
+  auth: none
+  verified: searched
+tools: []
+evidence:
+  - url: https://www.bsee.gov/.well-known/ai-plugin.json
+    status: 404
+  - url: https://www.bsee.gov/llms.txt
+    status: 404
+  - url: https://api.github.com/users/DOI-BSEE/repos
+    status: 200
+    note: organization exists, zero public repositories
+  - url: https://www.data.bsee.gov/.well-known/agent-card.json
+    status: 200
+    note: soft-404 HTML shell, not a document
+blockers:
+  - No public API contract to derive candidate tools from.
+  - >-
+    The queryable surface (www.data.bsee.gov) is an ASP.NET HTML form application whose
+    unknown paths return HTTP 200 with a 404 shell, so it cannot be probed into a tool set.
+  - The permitting surface (timsweb.bsee.gov) is behind an operator login.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

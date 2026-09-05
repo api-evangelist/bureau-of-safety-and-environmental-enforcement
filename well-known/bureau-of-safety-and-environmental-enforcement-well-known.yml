@@ -1,0 +1,164 @@
+generated: '2026-09-05'
+method: probed
+source: live HTTP probes of every host in apis.yml (registrable domain, www, each API host)
+provider: Bureau of Safety and Environmental Enforcement
+providerId: bureau-of-safety-and-environmental-enforcement
+description: >-
+  Probe of the named /.well-known/ document set on every BSEE host the record knows.
+  One real document is served: an RFC 9116 security.txt on bsee.gov and www.bsee.gov,
+  pointing at the Department of the Interior vulnerability disclosure policy. Every
+  other path is absent. Two hosts answer 200 for ANY path — www.data.bsee.gov (ASP.NET
+  Data Center) returns its "Data Center 404 Error" shell and timsweb.bsee.gov returns
+  the TIMS Web login page — so their 200s are soft-404s, not documents, and are recorded
+  as misses. Control probes: https://www.data.bsee.gov/zzzz-not-a-real-page.aspx -> 200
+  (28,245 byte 404 shell) and https://timsweb.bsee.gov/zzzz-not-real.jsp -> 200 (TIMS Web
+  Login). https://www.bsee.gov/zzzz-not-a-real-page -> 404, so the www.bsee.gov 404s are real.
+hosts:
+  - host: bsee.gov
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: bureau-of-safety-and-environmental-enforcement-security.txt
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+  - host: www.bsee.gov
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: bureau-of-safety-and-environmental-enforcement-security.txt
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+  - host: data.bsee.gov
+    note: >-
+      Every path returns HTTP 200 with the Data Center HTML 404 shell. All entries below
+      are soft-404 misses, not served documents.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/api-catalog
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/agent.json
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/aauth-resource.json
+        status: 200
+        result: soft-404 (HTML shell)
+  - host: www.data.bsee.gov
+    note: >-
+      Same ASP.NET catch-all as data.bsee.gov. Every 200 below is the HTML 404 shell.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/api-catalog
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/agent.json
+        status: 200
+        result: soft-404 (HTML shell)
+      - path: /.well-known/aauth-resource.json
+        status: 200
+        result: soft-404 (HTML shell)
+  - host: timsweb.bsee.gov
+    note: >-
+      Java application; every unauthenticated path returns 200 with the TIMS Web Login
+      page. All entries below are soft-404 / login-wall misses.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/api-catalog
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/agent.json
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+      - path: /.well-known/aauth-resource.json
+        status: 200
+        result: soft-404 (TIMS Web Login page)
+summary:
+  documents_served: 1
+  hosts_probed: 5
+  paths_probed_per_host: 9
+  security_txt: true
+  api_catalog: false
+  agent_card: false
+  oauth_metadata: false
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

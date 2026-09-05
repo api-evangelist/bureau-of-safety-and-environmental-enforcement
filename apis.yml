@@ -46,12 +46,20 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bureau-of-safety-and-environmental-enforcement.png
 access: 3rd-Party
 created: '2024-11-30'
-modified: '2026-04-23'
+modified: '2026-09-05'
 position: Consuming
 description: >-
-  The Bureau of Safety and Environmental Enforcement (BSEE) works to promote
-  safety, protect the environment, and conserve resources offshore through
-  vigorous regulatory oversight and enforcement.
+  The Bureau of Safety and Environmental Enforcement (BSEE) is the U.S. Department of the
+  Interior bureau that promotes safety, protects the environment and conserves resources
+  offshore through regulatory oversight and enforcement of oil, gas and mineral operations
+  on the Outer Continental Shelf. BSEE publishes the authoritative public record of
+  offshore wells, leases, pipelines, platforms, production, exploration and development
+  plans and incidents of non-compliance through the BSEE Data Center, as HTML online-query
+  applications and zipped delimited-ASCII bulk downloads, and operates the eWell/TIMS
+  permitting system that offshore operators use to file permits and activity reports. BSEE
+  publishes no OpenAPI, GraphQL, AsyncAPI, SOAP or MCP contract; note that "API" in BSEE's
+  own vocabulary means the American Petroleum Institute well number, not an application
+  programming interface.
 apis:
   - aid: >-
       bureau-of-safety-and-environmental-enforcement:bsee-well-api
@@ -67,7 +75,7 @@ apis:
       - Wells
       - Offshore
     humanURL: https://www.data.bsee.gov/well/api/default.aspx
-    baseURL: https://www.bsee.gov/Well/API/
+    baseURL: https://www.data.bsee.gov/Well/API/
     properties:
       - url: https://www.data.bsee.gov/well/api/default.aspx
         type: Documentation
@@ -107,6 +115,7 @@ apis:
       - Offshore
       - Oil and Gas
     humanURL: https://www.data.bsee.gov/
+    baseURL: https://www.data.bsee.gov/
     properties:
       - url: https://www.data.bsee.gov/
         type: Portal
@@ -142,6 +151,7 @@ apis:
       - Safety
       - Permitting
     humanURL: https://timsweb.bsee.gov/
+    baseURL: https://timsweb.bsee.gov/
     properties:
       - url: https://timsweb.bsee.gov/
         type: Portal
@@ -176,7 +186,67 @@ common:
     url: https://catalog.data.gov/dataset?organization=bsee-gov
   - url: https://www.bsee.gov/rss.xml
     type: Blog
+  - type: WellKnown
+    url: well-known/bureau-of-safety-and-environmental-enforcement-well-known.yml
+  - type: SecurityTxt
+    url: well-known/bureau-of-safety-and-environmental-enforcement-security.txt
+  - type: Security
+    url: security/bureau-of-safety-and-environmental-enforcement-vulnerability-disclosure.yml
+  - type: LLMsTxt
+    url: llms/bureau-of-safety-and-environmental-enforcement-llms.txt
+  - type: Packages
+    url: packages/bureau-of-safety-and-environmental-enforcement-packages.yml
+  - type: Conformance
+    url: conformance/bureau-of-safety-and-environmental-enforcement-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/bureau-of-safety-and-environmental-enforcement-lifecycle.yml
+  - type: Conventions
+    url: conventions/bureau-of-safety-and-environmental-enforcement-conventions.yml
+  - type: Plans
+    url: plans/bureau-of-safety-and-environmental-enforcement-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/bureau-of-safety-and-environmental-enforcement-rate-limits.yml
+  - type: Documentation
+    url: https://www.data.bsee.gov/Main/RawData.aspx
+  - type: GettingStarted
+    url: https://www.data.bsee.gov/Main/Tutorials/OnlineQuery.aspx
+  - type: Support
+    url: https://www.data.bsee.gov/Main/HtmlPage.aspx?page=contactbsee
+  - type: GitHubOrganization
+    url: https://github.com/DOI-BSEE
+  - type: Pricing
+    url: https://www.bsee.gov/who-we-are/working-with-us/doing-business-with-bsee/fees-for-services
+  - type: TermsOfService
+    url: https://www.bsee.gov/site-page/disclaimer
+  - type: Login
+    url: https://timsweb.bsee.gov/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 specificationVersion: '0.23'
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 8
+  pass: local-v3
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: >-
+    BSEE's offshore data is fully public and free, but it is only reachable through
+    ASP.NET online-query forms and zipped delimited-ASCII downloads on www.data.bsee.gov
+    — no OpenAPI, GraphQL, AsyncAPI, WSDL or MCP contract exists on any bsee.gov host,
+    and the host answers HTTP 200 with a "Data Center 404 Error" HTML shell for every
+    path that does not exist, so even path discovery returns false positives.
+  evidence:
+    - url: https://www.data.bsee.gov/openapi.json
+      status: 200
+    - url: https://www.data.bsee.gov/zzzz-not-a-real-page.aspx
+      status: 200
+    - url: https://www.bsee.gov/llms.txt
+      status: 404
+    - url: https://www.bsee.gov/data.json
+      status: 404
+    - url: https://timsweb.bsee.gov/
+      status: 200
+  checked: '2026-09-05'

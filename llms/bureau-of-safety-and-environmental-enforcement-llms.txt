@@ -1,0 +1,94 @@
+# Bureau of Safety and Environmental Enforcement (BSEE)
+
+> BSEE is the U.S. Department of the Interior bureau that regulates offshore oil, gas
+> and mineral operations on the Outer Continental Shelf. It publishes the authoritative
+> public record of offshore wells, leases, pipelines, platforms, production, plans and
+> incidents of non-compliance through the BSEE Data Center, and operates the eWell /
+> TIMS permitting system used by operators to file permits and activity reports.
+
+> Provenance: generated 2026-09-05 by the API Evangelist enrichment pipeline from this
+> repository's apis.yml and from live probes of BSEE's public hosts. BSEE does not
+> publish an llms.txt of its own (https://www.bsee.gov/llms.txt -> 404). This file is an
+> independent third-party description, not a BSEE document.
+
+## What is machine-readable here, and what is not
+
+BSEE publishes **no OpenAPI, AsyncAPI, GraphQL, gRPC, SOAP/WSDL or MCP contract** as of
+2026-09-05. Every probe is recorded in this repository. The public surface is:
+
+1. **HTML "Online Query" applications** on www.data.bsee.gov — ASP.NET forms that return
+   results as HTML with CSV / XLS / PDF export buttons. They are not callable as an API:
+   the host returns HTTP 200 with a "Data Center 404 Error" HTML shell for any unknown
+   path, so path probing yields false positives.
+2. **Bulk raw-data downloads** — zipped delimited ASCII files, one per subject area,
+   refreshed on a published cadence (most daily, some weekly / bi-monthly / monthly).
+   These are the closest thing BSEE offers to a programmatic feed.
+3. **Gated permitting** — eWell / TIMS at timsweb.bsee.gov requires a BSEE-issued
+   operator account; unauthenticated requests return the login page.
+
+Note on the word "API": in BSEE's own vocabulary, **API means the American Petroleum
+Institute well number** (the 10-, 12- or 14-digit well identifier), not an application
+programming interface. "API List Online Query" is a well-number lookup form.
+
+## Data Center — online query surfaces
+
+- [BSEE Data Center](https://www.data.bsee.gov/): entry point to every online query.
+- [Well information](https://www.data.bsee.gov/Main/Well.aspx): APD, API list, API changes, boreholes, BHPS, eWell APD/APM/EOR/WAR.
+- [API List Online Query](https://www.data.bsee.gov/Well/API/Default.aspx): multiregional well lookup by API well number, company, status, field, spud date.
+- [API List field definitions](https://www.data.bsee.gov/Well/API/FieldDefinitions.aspx): the column-by-column dictionary for the well query result set.
+- [Leasing](https://www.data.bsee.gov/Main/Leasing.aspx): lease owners, assignments, area/block, serial register pages, OSFR, decommissioning cost estimates.
+- [Pipelines](https://www.data.bsee.gov/Main/Pipeline.aspx): pipeline locations, permits, right-of-way descriptions.
+- [Platforms](https://www.data.bsee.gov/Main/Platform.aspx): platform structures, applications and approvals, removals.
+- [Production](https://www.data.bsee.gov/Main/Production.aspx): OCS production, production by lease / planning area / platform, OGOR-A/B/C, FMP meters and tanks.
+- [Company](https://www.data.bsee.gov/Main/Company.aspx): company detail, approvals, incidents of non-compliance (INCs).
+- [Plans](https://www.data.bsee.gov/Main/Plans.aspx): exploration and development plans.
+- [Mapping](https://www.data.bsee.gov/Main/Mapping.aspx): downloadable shapefiles and ArcGIS geodatabases, plus ArcGIS Online web-map viewers.
+
+## Bulk data
+
+- [Raw Data](https://www.data.bsee.gov/Main/RawData.aspx): every downloadable file, its
+  update frequency and its layout. Files are zipped delimited ASCII. BSEE states it does
+  not support the raw files and recommends them only for consumers who already know the
+  data model.
+- Example paths: `/Well/Files/APDRawData.zip`, `/Leasing/Files/AssignmentsRawData.zip`,
+  `/Production/Files/ProductionRawData.zip`, `/Pipeline/Files/pplmastdelimit.zip`.
+- Geospatial: `/Mapping/Files/Platforms.gdb.zip`, `/Mapping/Files/Pipelines.gdb.zip`,
+  `/Mapping/Files/ActiveLeasePolygons.gdb.zip`.
+
+## Permitting and ordering (account required)
+
+- [TIMS Web / eWell](https://timsweb.bsee.gov/): permit submission and well activity
+  reporting for operators. Login required; no public contract.
+- [Public Information Ordering System](https://www.data.bsee.gov/Other/PIOrderingSystem/Default.aspx): purchases of Public Information items; signs users in with Login.gov.
+- [File Request System](https://www.data.bsee.gov/Other/FileRequestSystem/Default.aspx): requests for scanned well, lease, company and plan files.
+
+## Getting started and support
+
+- [Online Query tutorial](https://www.data.bsee.gov/Main/Tutorials/OnlineQuery.aspx)
+- [All Data Center tutorials](https://www.data.bsee.gov/Main/Tutorials/Default.aspx)
+- [Contact the Data Center](https://www.data.bsee.gov/Main/HtmlPage.aspx?page=contactbsee)
+- [Offshore Data & Tools](https://www.bsee.gov/offshore-data-tools)
+- [Data management](https://www.data.bsee.gov/Main/HtmlPage.aspx?page=dataManagement)
+
+## Policy and terms
+
+- [Disclaimer / data use](https://www.bsee.gov/site-page/disclaimer): BSEE data is public
+  information and may be distributed or copied; BSEE gives no warranty as to accuracy,
+  reliability or completeness, and asks that data be taken from a bureau server rather
+  than a third-party copy.
+- [Privacy policy](https://www.bsee.gov/site-page/privacy-policy)
+- [Fees for services](https://www.bsee.gov/who-we-are/working-with-us/doing-business-with-bsee/fees-for-services): the 30 CFR 250.125 cost-recovery fee schedule for permit and application filings. These are regulatory filing fees, not data-access charges — the Data Center itself is free.
+- [Vulnerability disclosure](https://www.doi.gov/vulnerability-disclosure-policy), advertised at https://www.bsee.gov/.well-known/security.txt
+
+## Related but NOT BSEE
+
+- `https://gis.boem.gov/arcgis/rest/services/BOEM_BSEE/` is a real ArcGIS REST service
+  carrying joint BOEM/BSEE offshore layers, but it is **operated by the Bureau of Ocean
+  Energy Management on BOEM's host**, and is profiled under BOEM, not here.
+- `https://catalog.data.gov/dataset?organization=bsee-gov` lists BSEE datasets, but the
+  catalog and its API belong to GSA / Data.gov.
+
+## Optional
+
+- [Newsroom](https://www.bsee.gov/newsroom) and [RSS feed](https://www.bsee.gov/rss.xml)
+- [GitHub organization](https://github.com/DOI-BSEE) — exists, zero public repositories as of 2026-09-05.

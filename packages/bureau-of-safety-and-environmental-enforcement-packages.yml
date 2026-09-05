@@ -1,0 +1,46 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  registry.npmjs.org search, pypi.org, github.com/DOI-BSEE, and the BSEE Data Center
+  download/tutorial pages
+provider: Bureau of Safety and Environmental Enforcement
+providerId: bureau-of-safety-and-environmental-enforcement
+description: >-
+  BSEE publishes no first-party client library, SDK or CLI in any public package registry.
+  There is no API contract for one to wrap: the public surface is HTML online-query forms
+  plus zipped delimited-ASCII bulk files. Recorded as a checked absence, not an unchecked gap.
+package_count: 0
+official_package_count: 0
+packages: []
+registries_checked:
+  - registry: npm
+    endpoint: https://registry.npmjs.org/-/v1/search?text=bsee
+    result: no first-party package; the only hit is a third-party oil-and-gas connector preset
+    checked: '2026-09-05'
+  - registry: pypi
+    endpoint: https://pypi.org/pypi/bsee/json
+    status: 404
+    result: absent
+    checked: '2026-09-05'
+  - registry: github
+    endpoint: https://api.github.com/users/DOI-BSEE/repos
+    status: 200
+    result: >-
+      The DOI-BSEE GitHub organization is real and named "Bureau of Safety and
+      Environmental Enforcement", but it publishes zero public repositories, so there is
+      no source-distributed client either.
+    checked: '2026-09-05'
+  - registry: cdn
+    result: >-
+      No script-tag or CDN-distributed client is referenced anywhere on www.data.bsee.gov
+      or www.bsee.gov.
+    checked: '2026-09-05'
+notes:
+  - >-
+    Registries not queried because no candidate name exists to query: Maven Central,
+    NuGet, pkg.go.dev, RubyGems, Packagist, crates.io. A search with no first-party
+    namespace to search for is not evidence either way, so they are listed rather than
+    claimed as negative results.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
