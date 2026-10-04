@@ -5,7 +5,7 @@ name: Bureau of Safety and Environmental Enforcement
 tags:
   - Enforcement
   - Environment
-  - Federal-Government
+  - Federal Government
   - Safety
   - Offshore
   - Oil and Gas
@@ -18,6 +18,7 @@ tags_raw:
   - Offshore
   - Oil and Gas
   - Wells
+  - Federal-Government
 type: Index
 kind: government
 deliveryModel:
@@ -65,7 +66,7 @@ apis:
       bureau-of-safety-and-environmental-enforcement:bsee-well-api
     name: BSEE Well API Online Query
     tags:
-      - Federal-Government
+      - Federal Government
       - Safety
       - Wells
       - Offshore
@@ -74,6 +75,7 @@ apis:
       - Safety
       - Wells
       - Offshore
+      - Federal-Government
     humanURL: https://www.data.bsee.gov/well/api/default.aspx
     baseURL: https://www.data.bsee.gov/Well/API/
     properties:
@@ -105,7 +107,7 @@ apis:
       bureau-of-safety-and-environmental-enforcement:bsee-data-center
     name: BSEE Data Center
     tags:
-      - Federal-Government
+      - Federal Government
       - Safety
       - Offshore
       - Oil and Gas
@@ -114,6 +116,7 @@ apis:
       - Safety
       - Offshore
       - Oil and Gas
+      - Federal-Government
     humanURL: https://www.data.bsee.gov/
     baseURL: https://www.data.bsee.gov/
     properties:
@@ -143,13 +146,14 @@ apis:
       bureau-of-safety-and-environmental-enforcement:tims-eplanning
     name: BSEE eWell Permitting System (TIMS)
     tags:
-      - Federal-Government
+      - Federal Government
       - Safety
       - Permitting
     tags_raw:
       - Federal Government
       - Safety
       - Permitting
+      - Federal-Government
     humanURL: https://timsweb.bsee.gov/
     baseURL: https://timsweb.bsee.gov/
     properties:
