@@ -1,4 +1,4 @@
-# Bureau of Safety and Environmental Enforcement (bureau-of-safety-and-environmental-enforcement)
+# Bureau of Safety and Environmental Enforcement
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,109 +64,112 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Bureau of Safety and Environmental Enforcement (BSEE) works to promote safety, protect the environment, and conserve resources offshore through vigorous regulatory oversight and enforcement.
+The Bureau of Safety and Environmental Enforcement (BSEE) is the U.S. Department of the Interior bureau that promotes safety, protects the environment and conserves resources offshore through regulatory oversight and enforcement of oil, gas and mineral operations on the Outer Continental Shelf. BSEE publishes the authoritative public record of offshore wells, leases, pipelines, platforms, production, exploration and development plans and incidents of non-compliance through the BSEE Data Center, as HTML online-query applications and zipped delimited-ASCII bulk downloads, and operates the eWell/TIMS permitting system that offshore operators use to file permits and activity reports. BSEE publishes no OpenAPI, GraphQL, AsyncAPI, SOAP or MCP contract; note that "API" in BSEE's own vocabulary means the American Petroleum Institute well number, not an application programming interface.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/bureau-of-safety-and-environmental-enforcement/refs/heads/main/apis.yml)
+**Areas:** Enforcement · Environment · Federal Government · Safety · Offshore · Oil and Gas · Wells
 
-## Scope
+## Bureau of Safety and Environmental Enforcement on APIs.io
 
-- **Type:** Index
-- **x-type:** government
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Bureau of Safety and Environmental Enforcement is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bureau-of-safety-and-environmental-enforcement/](https://apis.io/providers/bureau-of-safety-and-environmental-enforcement/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Enforcement
-- Environment
-- Federal Government
-- Safety
-- Offshore
-- Oil and Gas
-- Wells
+- [BSEE Well API Online Query](https://apis.io/apis/bureau-of-safety-and-environmental-enforcement/bsee-well-api/) — The BSEE Well API provides multiregional offshore well information retrieval across Alaska, Atlantic, Gulf of America, and Pacific regions. Query by API…
+- [BSEE Data Center](https://apis.io/apis/bureau-of-safety-and-environmental-enforcement/bsee-data-center/) — The BSEE Data Center provides online query services and data downloads for offshore oil and gas operations. Data covers company information, leasing,…
+- [BSEE eWell Permitting System (TIMS)](https://apis.io/apis/bureau-of-safety-and-environmental-enforcement/tims-eplanning/) — The Technical Information Management System (TIMS) / eWell system enables permit submissions and well activity reporting for offshore operations. Operators…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-11-30
-- **Modified:** 2026-04-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (2)
 
-### BSEE Well API Online Query
-The BSEE Well API provides multiregional offshore well information retrieval across Alaska, Atlantic, Gulf of America, and Pacific regions. Query by API well number, company name, well status, field name, spud date, and other criteria.
+Authentication, trust centre, and vulnerability disclosure.
 
-**Human URL:** [https://www.data.bsee.gov/well/api/default.aspx](https://www.data.bsee.gov/well/api/default.aspx)
+- [Bureau Of Safety And Environmental Enforcement Domain Security](https://apis.io/security/bureau-of-safety-and-environmental-enforcement/bureau-of-safety-and-environmental-enforcement-domain-security/)
+- [Bureau Of Safety And Environmental Enforcement Vulnerability Disclosure](https://apis.io/security/bureau-of-safety-and-environmental-enforcement/bureau-of-safety-and-environmental-enforcement-vulnerability-disclosure/)
 
-**Base URL:** https://www.bsee.gov/Well/API/
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Federal Government
-- Safety
-- Wells
-- Offshore
+- [Bureau Of Safety And Environmental Enforcement Plans Pricing](https://apis.io/plans/bureau-of-safety-and-environmental-enforcement/bureau-of-safety-and-environmental-enforcement-plans-pricing/)
 
-#### Features
+#### Rate limits (1)
 
-- Multiregional Well Search
-- API Well Number Lookup
-- Company Name Search
-- Well Status Filtering
-- Date Range Queries
-- CSV/XLS Export
-- PDF Export
+Published request limits.
 
-#### Use Cases
+- [Bureau Of Safety And Environmental Enforcement Rate Limits](https://apis.io/rate-limits/bureau-of-safety-and-environmental-enforcement/bureau-of-safety-and-environmental-enforcement-rate-limits/)
 
-- Offshore well permitting research
-- Drilling activity analysis
-- Regulatory compliance verification
-- Environmental monitoring
+#### FinOps (1)
 
-### BSEE Data Center
-The BSEE Data Center provides online query services and data downloads for offshore oil and gas operations. Data covers company information, leasing, pipelines, wells, production, platforms, and permitting across all OCS regions.
+What the API costs to run, by operation.
 
-**Human URL:** [https://www.data.bsee.gov/](https://www.data.bsee.gov/)
+- [Bureau Of Safety And Environmental Enforcement Finops](https://apis.io/finops/bureau-of-safety-and-environmental-enforcement/bureau-of-safety-and-environmental-enforcement-finops/)
 
-#### Features
+## Where to find this API
 
-- Company and Approval Data
-- Lease and Assignment Records
-- Pipeline Location and Permit Data
-- Well and Borehole Records
-- Production Data by Platform
-- Incident of Non-Compliance Records
-- ArcGIS Interactive Mapping
-- ASCII and Shapefile Downloads
-
-#### Use Cases
-
-- Offshore lease research
-- Production monitoring
-- Pipeline safety oversight
-- Regulatory compliance tracking
-- Incident investigation
-
-### BSEE eWell Permitting System (TIMS)
-The TIMS/eWell system enables permit submissions and well activity reporting for offshore operations. Operators submit Applications for Permit to Drill (APD) and report well activities.
-
-**Human URL:** [https://timsweb.bsee.gov/](https://timsweb.bsee.gov/)
-
-#### Features
-
-- Permit Submission
-- Well Activity Reporting
-- Exploration Plan Submissions
-- Development Plan Submissions
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.bsee.gov/)
-- [Portal](https://www.data.bsee.gov/)
-- [Privacy Policy](https://www.bsee.gov/privacy-policy)
-- [Data Portal](https://catalog.data.gov/dataset?organization=bsee-gov)
+- [Documentation](https://www.data.bsee.gov/Main/RawData.aspx)
+- [Getting started](https://www.data.bsee.gov/Main/Tutorials/OnlineQuery.aspx)
+- [Pricing](https://www.bsee.gov/who-we-are/working-with-us/doing-business-with-bsee/fees-for-services)
+- [Support](https://www.data.bsee.gov/Main/HtmlPage.aspx?page=contactbsee)
+- [Blog](https://www.bsee.gov/rss.xml)
+- [Terms of service](https://www.bsee.gov/site-page/disclaimer)
+- [Privacy policy](https://www.bsee.gov/privacy-policy)
+- [GitHub](https://github.com/DOI-BSEE)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 38.2 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bureau-of-safety-and-environmental-enforcement/](https://apis.io/providers/bureau-of-safety-and-environmental-enforcement/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bureau of Safety and Environmental Enforcement: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bureau-of-safety-and-environmental-enforcement/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
